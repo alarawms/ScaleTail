@@ -421,7 +421,7 @@ def parse_env_file(env_path: Path) -> list[dict]:
 # Service metadata extraction
 # ---------------------------------------------------------------------------
 
-def extract_service_metadata(service_dir: Path, repo_url: str = DEFAULT_REPO_URL) -> dict | None:
+def extract_service_metadata(service_dir: Path, repo_url: str = DEFAULT_REPO_URL, branch: str = "synology") -> dict | None:
     """Read a single service directory and return a Portainer App Template v2 entry.
 
     Args:
@@ -474,6 +474,7 @@ def extract_service_metadata(service_dir: Path, repo_url: str = DEFAULT_REPO_URL
         "repository": {
             "url": repo_url,
             "stackfile": stackfile,
+            "branch": branch,
         },
         "env": env_vars,
     }
@@ -490,6 +491,7 @@ def generate_templates(
     services_dir: Path,
     repo_url: str = DEFAULT_REPO_URL,
     output_path: Path | None = None,
+    branch: str = "synology",
 ) -> None:
     """Iterate all service directories, extract metadata, and write the JSON file.
 
@@ -516,7 +518,7 @@ def generate_templates(
 
     for svc_dir in service_dirs:
         try:
-            template = extract_service_metadata(svc_dir, repo_url=repo_url)
+            template = extract_service_metadata(svc_dir, repo_url=repo_url, branch=branch)
             if template is not None:
                 templates.append(template)
         except Exception as exc:
@@ -575,6 +577,12 @@ def main() -> None:
         help=f"GitHub repository URL (default: {DEFAULT_REPO_URL})",
     )
     parser.add_argument(
+        "--branch",
+        type=str,
+        default="synology",
+        help="Git branch for Portainer to clone (default: synology)",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Enable verbose logging.",
@@ -600,6 +608,7 @@ def main() -> None:
         services_dir=services_dir,
         repo_url=args.repo_url,
         output_path=output_path,
+        branch=args.branch,
     )
 
 
