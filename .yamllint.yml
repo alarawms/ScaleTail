@@ -1,0 +1,39 @@
+---
+# yamllint configuration for Docker Compose files
+# Relaxed rules suitable for generated Synology compose stacks
+
+extends: default
+
+rules:
+  # Docker Compose files often have long image URLs, environment values, etc.
+  line-length: disable
+
+  # Allow truthy values (true/false, yes/no) common in Docker Compose
+  truthy: disable
+
+  # Allow multiple documents in a single file
+  document-start: disable
+
+  # Relax comment formatting — generated files may have varying indentation
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 1
+
+  # Relax indentation — Docker Compose often uses 2-space indent
+  indentation:
+    spaces: 2
+    indent-sequences: whatever
+
+  # Allow empty values (common in env vars like TS_AUTHKEY=)
+  empty-values:
+    forbid-in-block-mappings: false
+    forbid-in-flow-mappings: false
+
+  # Braces and brackets style
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1

@@ -35,3 +35,7 @@ Temporary Items
 *.icloud
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
+
+# Synology .env templates (no secrets — TS_AUTHKEY is empty/commented)
+!synology/services/**/.env
+!synology/.env.shared

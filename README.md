@@ -40,6 +40,18 @@ ScaleTail provides ready-to-run [Docker Compose](https://docs.docker.com/compose
    docker compose up -d
    ```
 
+## Synology NAS + Portainer
+
+This fork adds first-class Synology DSM support. All 98 stacks are available as Synology-optimized variants under `synology/services/` using Tailscale userspace mode (no `/dev/net/tun` or `cap_add` required).
+
+**Three deployment methods:**
+
+1. **Portainer App Templates** — Add the template URL in Portainer settings, browse the catalog, deploy with one click
+2. **Portainer Git Stack** — Point at this repo, pick a compose path, set env vars
+3. **CLI** — `./tools/deploy-synology.sh adguardhome up`
+
+See [`synology/README.md`](synology/README.md) for the full Synology Quick Start guide.
+
 ## Contributors
 
 A huge thank you to all our contributors! ScaleTail wouldn’t be what it is today without your time, effort, and ideas!

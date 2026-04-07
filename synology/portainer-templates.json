@@ -1,0 +1,4724 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 3,
+      "title": "Actual Budget",
+      "description": "This Docker Compose configuration sets up **Actual Budget** with a Tailscale sidecar container, enabling secure and private access to your personal finance app over your Tailnet. With this setup, your budgeting data stays fully private and is only accessible from trusted devices, without exposing anything to the public internet.",
+      "categories": [
+        "Productivity",
+        "Finance",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/actual-budget/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "AdGuard Home",
+      "description": "This Docker Compose configuration sets up AdGuard Home with Tailscale as a sidecar container to securely route DNS traffic over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your DNS queries, ensuring that they are only accessible within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/adguardhome/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "AdGuard Home Sync",
+      "description": "This Docker Compose configuration sets up **AdGuardHome Sync** with Tailscale as a sidecar container to securely synchronize your AdGuard Home instances over a private Tailscale network. By integrating Tailscale, you ensure that configuration data is transmitted securely between nodes and accessible only to authorized devices in your private network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/adguardhome-sync/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Anchor",
+      "description": "This Docker Compose configuration sets up Anchor with Tailscale as a sidecar container so your notes stay reachable only over your Tailnet instead of being exposed to the public internet.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/anchor/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Arcane",
+      "description": "This Docker Compose configuration sets up **Arcane** with a Tailscale sidecar container, enabling secure access to your self-hosted Docker management interface over your private Tailscale network. With this setup, your Arcane instance remains **private and accessible only from authorized devices on your Tailnet**, keeping your Docker environment and operations shielded from public exposure.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/arcane/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "TAILNET_NAME",
+          "label": "Tailnet Name",
+          "default": "# for example: tail-scale"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Audiobookshelf",
+      "description": "This Docker Compose configuration sets up Audiobookshelf with Tailscale as a sidecar container to securely access and manage your audiobook and podcast library over a private Tailscale network. By integrating Tailscale, you can ensure that your Audiobookshelf instance remains private and accessible only to devices within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/audiobookshelf/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Bazarr",
+      "description": "This Docker Compose configuration sets up Bazarr with Tailscale as a sidecar container to securely manage and access your subtitle management system over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Bazarr instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/bazarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "BentoPDF",
+      "description": "This Docker Compose configuration sets up **BentoPDF** with a Tailscale sidecar container, enabling secure access to your self-hosted PDF management interface over your private Tailscale network. With this setup, your BentoPDF instance remains **private and accessible only from authorized devices on your Tailnet**, keeping your documents protected from public exposure.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/bentopdf/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Beszel Agent",
+      "description": "This Docker Compose configuration integrates the Beszel Agent with Tailscale in a sidecar setup to enhance secure communication over a private Tailscale network. By utilizing Tailscale, this configuration ensures that the Agent's communication with the Hub remains secure and private within your Tailscale network. Thanks to @henrygd for the tool development.",
+      "categories": [
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/beszel-agent/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Beszel Hub",
+      "description": "This Docker Compose configuration integrates the Beszel Hub with Tailscale in a sidecar setup to enhance secure communication over a private Tailscale network. By utilizing Tailscale, this configuration ensures that all communication handled by the Hub remains secure and private within your Tailscale network. Thanks to @henrygd for the tool development.",
+      "categories": [
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/beszel-hub/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "BookLore",
+      "description": "This Docker Compose configuration sets up BookLore with Tailscale as a sidecar container to securely access and manage your book library over a private Tailscale network. By integrating Tailscale, you can ensure that your BookLore instance remains private and accessible only to devices within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/booklore/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "MYSQL_ROOT_PASSWORD",
+          "label": "Mysql Root Password",
+          "default": "# Use a strong password for the databases root user, should be different from MYSQL_PASSWORD"
+        },
+        {
+          "name": "MYSQL_DATABASE",
+          "label": "Mysql Database",
+          "default": "booklore"
+        },
+        {
+          "name": "MYSQL_USER",
+          "label": "Mysql User",
+          "default": "booklore"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "label": "Mysql Password",
+          "default": "# Use a strong password; must match DATABASE_PASSWORD defined in the booklore container"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Caddy",
+      "description": "This Docker Compose configuration sets up Caddy with Tailscale as a sidecar container to securely manage and route your traffic over a private Tailscale network. By integrating Tailscale, you can enhance the security and privacy of your Caddy instance, ensuring that access is restricted to devices within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/caddy/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Changedetection.io",
+      "description": "This Docker Compose configuration sets up ChangeDetection.io with Tailscale as a sidecar container to securely monitor and access website changes over a private Tailscale network. By using Tailscale in a sidecar configuration, you can ensure that your ChangeDetection.io instance is only accessible within your Tailscale network, providing enhanced security and privacy.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/changedetection/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "ClipCascade",
+      "description": "This Docker Compose configuration sets up ClipCascade with Tailscale as a sidecar container to securely manage and access your clipboard history over a private Tailscale network. By integrating Tailscale, you can ensure that your ClipCascade instance remains private and accessible only to authorized devices on your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/clipcascade/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Coder",
+      "description": "This Docker Compose configuration sets up **Coder** with Tailscale as a sidecar container, enabling secure access to your self-hosted cloud development environments from anywhere on your private Tailscale network. With this setup, your Coder instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/coder/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "CODER_VERSION",
+          "label": "Coder Version",
+          "default": "latest"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "Postgres User",
+          "default": "username"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Postgres Password",
+          "default": "strongpassword"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "label": "Postgres Db",
+          "default": "coder"
+        },
+        {
+          "name": "CODER_ACCESS_URL",
+          "label": "Coder Access Url",
+          "default": "https://coder.<YOUR-TAILSCALE-DOMAIN>.ts.net"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Configarr",
+      "description": "This Docker Compose configuration sets up **Configarr** with a Tailscale sidecar container, enabling secure and private management of configuration files for your *Radarr*, *Sonarr*, and broader media automation stack. With this setup, Configarr is **only accessible from within your Tailscale network**, keeping your configuration workflows fully private and under your control.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/configarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "ConvertX",
+      "description": "This Docker Compose configuration sets up ConvertX with Tailscale as a sidecar container to securely access your media conversion tool over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your ConvertX instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Utilities",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/convertx/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Copyparty",
+      "description": "This Docker Compose configuration sets up Copyparty with Tailscale as a sidecar container to securely access your lightweight file server and sharing platform over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and accessibility of your Copyparty instance, ensuring it is only available within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/copyparty/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "CyberChef",
+      "description": "This Docker Compose configuration sets up CyberChef with Tailscale as a sidecar container to securely access your data analysis and manipulation tool over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your CyberChef instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/cyberchef/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "DDNS Updater",
+      "description": "This Docker Compose configuration sets up DDNS Updater with Tailscale as a sidecar container, enabling secure and private management of your dynamic DNS records over a Tailscale network. Integrating Tailscale ensures that your DDNS Updater instance is accessible only to authorized devices within your Tailnet, enhancing the security of your DNS management.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/ddns-updater/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Dockhand",
+      "description": "This Docker Compose configuration sets up **Dockhand** with a Tailscale sidecar container, enabling secure access to your self-hosted Docker management interface over your private Tailscale network. With this setup, your Dockhand instance remains private and accessible only from authorized devices on your Tailnet, ensuring that container management and infrastructure controls are never exposed to the public internet.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/dockhand/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Docmost",
+      "description": "This Docker Compose configuration sets up **Docmost** with Tailscale as a sidecar container, enabling secure access to your collaborative wiki and documentation platform from anywhere on your private Tailscale network. With this setup, your Docmost instance remains fully private and accessible only to authorized users.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/docmost/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Donetick",
+      "description": "This Docker Compose configuration sets up **Donetick** with Tailscale as a sidecar container to securely manage and access your self-hosted task management system over a private Tailscale network. By integrating Tailscale, you can ensure that your Donetick instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/donetick/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Dozzle",
+      "description": "This Docker Compose configuration sets up Dozzle with Tailscale as a sidecar container to securely access your real-time Docker log viewer over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Dozzle instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/dozzle/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "DumbDo",
+      "description": "This Docker Compose configuration sets up DumbDo with Tailscale as a sidecar container to securely manage and access your lightweight task manager over a private Tailscale network. By integrating Tailscale, you can ensure that your DumbDo instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/dumbdo/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Eigenfocus",
+      "description": "This Docker Compose configuration sets up **Eigenfocus** with Tailscale as a sidecar container to securely manage and access your self-hosted task and project management tool over a private Tailscale network. By integrating Tailscale, you can ensure that your Eigenfocus instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/eigenfocus/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Excalidraw",
+      "description": "This Docker Compose configuration sets up Excalidraw with Tailscale as a sidecar container to securely collaborate on whiteboard diagrams over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you can enhance the security and accessibility of your Excalidraw server, ensuring that it is only available within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/excalidraw/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Flatnotes",
+      "description": "This Docker Compose configuration sets up **Flatnotes** with Tailscale as a sidecar container to securely manage and access your self-hosted note-taking application over a private Tailscale network. By integrating Tailscale, you can ensure that your Flatnotes instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/flatnotes/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Forgejo",
+      "description": "This Docker Compose configuration sets up **Forgejo** with Tailscale as a sidecar container, enabling secure access to your self-hosted Git service from anywhere on your private Tailscale network. With this setup, your Forgejo instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/forgejo/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Formbricks",
+      "description": "This Docker Compose configuration sets up **Formbricks** with a Tailscale sidecar container, enabling secure access to your self-hosted user feedback and survey platform over your private Tailscale network. With this setup, your Formbricks instance remains **private and accessible only from authorized devices on your Tailnet**, keeping feedback data and analytics protected from public exposure.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/formbricks/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "FossFLOW",
+      "description": "This Docker Compose configuration sets up FossFLOW with Tailscale as a sidecar container, enabling secure access to your visual workflow designer over your private Tailscale network. With this setup, FossFLOW remains fully self-hosted and is only accessible from authorized devices within your Tailnet.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/fossflow/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Frigate",
+      "description": "This Docker Compose configuration sets up **Frigate** with Tailscale as a sidecar container, enabling secure, private access to your NVR and AI-based camera monitoring system over your Tailnet.",
+      "categories": [
+        "Media",
+        "Smart Home",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/frigate/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Ghost",
+      "description": "This Docker Compose configuration sets up **Ghost** with Tailscale as a sidecar container to securely manage and access your self-hosted publishing platform over a private Tailscale network. By integrating Tailscale, you can ensure that your Ghost instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/ghost/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "GitSave",
+      "description": "This Docker Compose configuration sets up **GitSave** with Tailscale as a sidecar container, enabling secure access to your self-hosted GitHub repository backup solution from anywhere on your private Tailscale network. With this setup, your GitSave instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/gitsave/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "JWT_SECRET",
+          "label": "Jwt Secret",
+          "default": "\"REPLACE_THIS\""
+        },
+        {
+          "name": "DISABLE_AUTH",
+          "label": "Disable Auth",
+          "default": "false"
+        },
+        {
+          "name": "ENCRYPTION_SECRET",
+          "label": "Encryption Secret",
+          "default": "\"REPLACE_THIS_WITH_32_CHARACTERS_SECRET\""
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Glance",
+      "description": "This Docker Compose configuration sets up Glance with Tailscale as a sidecar container to securely access your system monitoring dashboard over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Glance instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Dashboard",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/glance/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Gokapi",
+      "description": "This Docker Compose configuration sets up Gokapi with Tailscale as a sidecar container to securely manage and access your lightweight file-sharing service over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Gokapi instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/gokapi/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Gotify",
+      "description": "This Docker Compose configuration sets up Gotify with Tailscale as a sidecar container, enabling secure access to your notification server from anywhere on your private Tailscale network. With this setup, your Gotify instance remains completely private and protected, accessible only to your authorized devices.",
+      "categories": [
+        "Utilities",
+        "Notifications",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/gotify/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Gramps Web",
+      "description": "This Docker Compose configuration sets up **Gramps Web** with Tailscale as a sidecar container, enabling secure access to your self-hosted genealogy platform from anywhere on your private Tailscale network. With this setup, your Gramps Web instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/grampsweb/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Haptic",
+      "description": "This Docker Compose configuration sets up **Haptic** with Tailscale as a sidecar container to securely manage and access your self-hosted bookmark manager over a private Tailscale network. By integrating Tailscale, you can ensure that your Haptic instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/haptic/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Hemmelig",
+      "description": "This Docker Compose configuration sets up **Hemmelig.app** with a Tailscale sidecar container, enabling secure access to your private encrypted secret-sharing platform over your Tailscale network. With this setup, your instance will be **private and reachable only by your authorized Tailscale devices**, ensuring truly confidential communication and secret exchange.",
+      "categories": [
+        "Utilities",
+        "Security",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/hemmelig/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Homarr",
+      "description": "This Docker Compose configuration sets up Homarr with Tailscale as a sidecar container to securely manage and access your dashboard over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Homarr instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "Dashboard",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/homarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Home Assistant",
+      "description": "This Docker Compose configuration sets up **Home Assistant** with Tailscale as a sidecar container to securely manage and access your smart home automation platform over a private Tailscale network. By integrating Tailscale, you can ensure that your Home Assistant instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Smart Home",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/home-assistant/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Homebox",
+      "description": "This Docker Compose configuration sets up **Homebox** with a Tailscale sidecar container, enabling secure access to your self-hosted inventory and asset management system over your private Tailscale network. With this setup, your Homebox instance remains **private and accessible only from authorized devices on your Tailnet**, keeping inventory data and asset metadata protected from public exposure.",
+      "categories": [
+        "Utilities",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/homebox/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Homepage",
+      "description": "This Docker Compose configuration sets up Homepage with Tailscale as a sidecar container to securely access your personal dashboard over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Homepage instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Dashboard",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/homepage/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "TAILNET_NAME",
+          "label": "Tailnet Name"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Hytale",
+      "description": "This Docker Compose configuration sets up a Hytale game server with Tailscale as a sidecar container to place the server directly on your Tailnet. The Hytale container uses the Tailscale network stack via `network_mode: service:tailscale`, so players connect over Tailscale without exposing the UDP port publicly.",
+      "categories": [
+        "Media",
+        "Gaming",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/hytale/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "SERVER_IP",
+          "label": "Server Ip",
+          "default": "0.0.0.0"
+        },
+        {
+          "name": "SERVER_PORT",
+          "label": "Server Port",
+          "default": "5520"
+        },
+        {
+          "name": "PROD",
+          "label": "Prod",
+          "default": "FALSE"
+        },
+        {
+          "name": "DEBUG",
+          "label": "Debug",
+          "default": "FALSE"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Immich",
+      "description": "This Docker Compose configuration sets up Immich with Tailscale as a sidecar container, enabling secure access to your photo and video library from anywhere on your private Tailscale network. With this setup, your Immich instance remains completely private and protected, accessible only to your authorized devices.",
+      "categories": [
+        "Media",
+        "Photos",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/immich/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "UPLOAD_LOCATION",
+          "label": "Upload Location",
+          "default": "./library"
+        },
+        {
+          "name": "DB_DATA_LOCATION",
+          "label": "Db Data Location",
+          "default": "./postgres"
+        },
+        {
+          "name": "IMMICH_VERSION",
+          "label": "Immich Version",
+          "default": "release"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "label": "Db Password",
+          "default": "postgres"
+        },
+        {
+          "name": "DB_USERNAME",
+          "label": "Db Username",
+          "default": "postgres"
+        },
+        {
+          "name": "DB_DATABASE_NAME",
+          "label": "Db Database Name",
+          "default": "immich"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Isley",
+      "description": "This Docker Compose configuration sets up Isley with Tailscale as a sidecar container, enabling secure and private access to your self-hosted cannabis grow journal over a Tailscale network. With Tailscale, you can ensure that your sensitive grow data and notes are only accessible by trusted devices within your Tailnet.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/isley/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "IT-Tools",
+      "description": "This Docker Compose configuration sets up IT-Tools with Tailscale as a sidecar container to securely access your all-in-one developer utility over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your IT-Tools instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/it-tools/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Jellyfin",
+      "description": "This Docker Compose configuration sets up Jellyfin with Tailscale as a sidecar container to securely manage and access your media server over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Jellyfin instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/jellyfin/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Kaneo",
+      "description": "This Docker Compose configuration sets up **Kaneo** with Tailscale as a sidecar container to securely manage and access your self-hosted project management platform over a private Tailscale network. By integrating Tailscale, you ensure that your Kaneo instance is only accessible to authorized devices within your Tailscale network, keeping your tasks, projects, and team discussions private.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/kaneo/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "IMAGE_URL_BACKEND",
+          "label": "Image Url Backend",
+          "default": "ghcr.io/usekaneo/api:latest"
+        },
+        {
+          "name": "IMAGE_URL_FRONTEND",
+          "label": "Image Url Frontend",
+          "default": "ghcr.io/usekaneo/web:latest"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Karakeep",
+      "description": "This Docker Compose configuration sets up **Karakeep** with Tailscale as a sidecar container to securely manage and access your self-hosted notes and collaboration app over a private Tailscale network. By integrating Tailscale, you can ensure that your Karakeep instance is only accessible to authorized devices within your Tailscale network, protecting your ideas and information from the public web.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/karakeep/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "KARAKEEP_VERSION",
+          "label": "Karakeep Version",
+          "default": "release"
+        },
+        {
+          "name": "NEXTAUTH_SECRET",
+          "label": "Nextauth Secret",
+          "default": "super_random_string"
+        },
+        {
+          "name": "MEILI_MASTER_KEY",
+          "label": "Meili Master Key",
+          "default": "another_random_string"
+        },
+        {
+          "name": "NEXTAUTH_URL",
+          "label": "Nextauth Url",
+          "default": "https://<YOUR_TAILNET_URL>"
+        },
+        {
+          "name": "MAX_ASSET_SIZE_MB",
+          "label": "Max Asset Size Mb",
+          "default": "50"
+        },
+        {
+          "name": "DISABLE_SIGNUPS",
+          "label": "Disable Signups",
+          "default": "false"
+        },
+        {
+          "name": "DISABLE_PASSWORD_AUTH",
+          "label": "Disable Password Auth",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Kavita",
+      "description": "This Docker Compose configuration sets up Kavita with Tailscale as a sidecar container to securely serve your comics, manga, and ebooks over a private Tailscale network. By running Tailscale as a sidecar, you restrict access to your Kavita instance to devices authenticated on your Tailnet, avoiding public exposure.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/kavita/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "LanguageTool",
+      "description": "This Docker Compose configuration sets up LanguageTool with Tailscale as a sidecar container to enhance secure networking.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/languagetool/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Linkding",
+      "description": "This Docker Compose configuration sets up Linkding with Tailscale as a sidecar container to securely manage and access your self-hosted bookmark manager over a private Tailscale network. By integrating Tailscale, you can ensure that your Linkding instance remains private and accessible only to authorized devices on your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/linkding/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "LubeLogger",
+      "description": "This Docker Compose configuration sets up **LubeLogger** with Tailscale as a sidecar container, enabling secure access to your vehicle maintenance log from anywhere on your private Tailscale network. With this setup, your LubeLogger instance stays completely private and protected, accessible only to your authorized devices.",
+      "categories": [
+        "Utilities",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/lube-logger/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "LC_ALL",
+          "label": "Lc All",
+          "default": "en_US.UTF-8"
+        },
+        {
+          "name": "LANG",
+          "label": "Lang",
+          "default": "en_US.UTF-8"
+        },
+        {
+          "name": "LUBELOGGER_MOTD",
+          "label": "Lubelogger Motd",
+          "default": "\"My Car\""
+        },
+        {
+          "name": "LUBELOGGER_DOMAIN",
+          "label": "Lubelogger Domain",
+          "default": "\"lubelogger.<YOUR-TS-DOMAIN>.ts.net\""
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Mattermost",
+      "description": "This Docker Compose configuration sets up Mattermost with Tailscale as a sidecar container to securely manage and access your clipboard history over a private Tailscale network. By integrating Tailscale, you can ensure that your Mattermost instance remains private and accessible only to authorized devices on your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/mattermost/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "DOMAIN",
+          "label": "Domain",
+          "default": "mattermost.example.com"
+        },
+        {
+          "name": "MM_SERVICESETTINGS_SITEURL",
+          "label": "Mm Servicesettings Siteurl",
+          "default": "https://${DOMAIN}"
+        },
+        {
+          "name": "HTTPS_PORT",
+          "label": "Https Port",
+          "default": "${SERVICEPORT}"
+        },
+        {
+          "name": "HTTP_PORT",
+          "label": "Http Port",
+          "default": "80"
+        },
+        {
+          "name": "CALLS_PORT",
+          "label": "Calls Port",
+          "default": "8443"
+        },
+        {
+          "name": "MATTERMOST_CONFIG_PATH",
+          "label": "Mattermost Config Path",
+          "default": "${PWD}/${SERVICE}-data/config"
+        },
+        {
+          "name": "MATTERMOST_DATA_PATH",
+          "label": "Mattermost Data Path",
+          "default": "${PWD}/${SERVICE}-data/data"
+        },
+        {
+          "name": "MATTERMOST_LOGS_PATH",
+          "label": "Mattermost Logs Path",
+          "default": "${PWD}/${SERVICE}-data/logs"
+        },
+        {
+          "name": "MATTERMOST_PLUGINS_PATH",
+          "label": "Mattermost Plugins Path",
+          "default": "${PWD}/${SERVICE}-data/plugins"
+        },
+        {
+          "name": "MATTERMOST_CLIENT_PLUGINS_PATH",
+          "label": "Mattermost Client Plugins Path",
+          "default": "${PWD}/${SERVICE}-data/client/plugins"
+        },
+        {
+          "name": "MATTERMOST_BLEVE_INDEXES_PATH",
+          "label": "Mattermost Bleve Indexes Path",
+          "default": "${PWD}/${SERVICE}-data/bleve-indexes"
+        },
+        {
+          "name": "MM_BLEVESETTINGS_INDEXDIR",
+          "label": "Mm Blevesettings Indexdir",
+          "default": "/mattermost/bleve-indexes"
+        },
+        {
+          "name": "MATTERMOST_CONTAINER_READONLY",
+          "label": "Mattermost Container Readonly",
+          "default": "false"
+        },
+        {
+          "name": "POSTGRES_IMAGE_TAG",
+          "label": "Postgres Image Tag",
+          "default": "13-alpine"
+        },
+        {
+          "name": "POSTGRES_DATA_PATH",
+          "label": "Postgres Data Path",
+          "default": "${PWD}/${SERVICE}-data/postgres/data"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "Postgres User",
+          "default": "MMus3r ##Please Change"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Postgres Password",
+          "default": "MMus3r_P4ssword ##Please Change"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "label": "Postgres Db",
+          "default": "mattermost"
+        },
+        {
+          "name": "MM_SQLSETTINGS_DRIVERNAME",
+          "label": "Mm Sqlsettings Drivername",
+          "default": "postgres"
+        },
+        {
+          "name": "MM_SQLSETTINGS_DATASOURCE",
+          "label": "Mm Sqlsettings Datasource",
+          "default": "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-${SERVICE}:5432/${POSTGRES_DB}?sslmode=disable&connect_timeout=10"
+        },
+        {
+          "name": "MM_SQLSETTINGS_DATASOURCE",
+          "label": "Mm Sqlsettings Datasource",
+          "default": "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db-${SERVICE}:5432/${POSTGRES_DB}?sslmode=disable&connect_timeout=10"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Mealie",
+      "description": "This Docker Compose configuration sets up **Mealie** with Tailscale as a sidecar container, enabling secure access to your personal recipe collection and meal planning platform from anywhere on your private Tailscale network. With this setup, your Mealie instance stays fully private and accessible only to your authorized devices.",
+      "categories": [
+        "Food & Wellness",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/mealie/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Memos",
+      "description": "This Docker Compose configuration sets up **Memos** with a Tailscale sidecar container, allowing you to securely access your personal knowledge base over your private Tailnet without exposing it to the public internet.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/memos/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "MeTube",
+      "description": "This Docker Compose configuration sets up Metube with Tailscale as a sidecar container to securely manage and access your self-hosted YouTube downloader over a private Tailscale network. By integrating Tailscale, you can ensure that your Metube instance remains private and accessible only to authorized devices on your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/metube/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Miniflux",
+      "description": "This Docker Compose configuration sets up Miniflux with Tailscale as a sidecar container, enabling secure access to your minimalist feed reader over a private Tailscale network. With this setup, your Miniflux instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/miniflux/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "TAILNET_NAME",
+          "label": "Tailnet Name",
+          "default": "# Include the \".ts.net\" if it is part of your Tailnet name"
+        },
+        {
+          "name": "ADMIN_USERNAME",
+          "label": "Admin Username",
+          "default": "admin"
+        },
+        {
+          "name": "ADMIN_PASSWORD",
+          "label": "Admin Password"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "Postgres User",
+          "default": "miniflux"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Postgres Password"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "label": "Postgres Db",
+          "default": "miniflux"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Mini-QR",
+      "description": "This Docker Compose configuration sets up **Mini-QR** with Tailscale as a sidecar container to securely access your self-hosted QR code generation tool over a private Tailscale network. By integrating Tailscale, you can ensure that your Mini-QR instance is only accessible to authorized devices within your private network, adding an extra layer of privacy and security.",
+      "categories": [
+        "Utilities",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/miniqr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Nanote",
+      "description": "This Docker Compose configuration sets up **Nanote** with Tailscale as a sidecar container to securely manage and access your self-hosted note-taking application over a private Tailscale network. By integrating Tailscale, you can ensure that your Nanote instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/nanote/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Navidrome",
+      "description": "This Docker Compose configuration sets up Navidrome with Tailscale as a sidecar container, enabling secure, private access to your music server over your Tailscale network. With this configuration, Navidrome is never exposed to the public internet, and access is limited to authorized devices on your Tailnet.",
+      "categories": [
+        "Media",
+        "Music",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/navidrome/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Nessus",
+      "description": "> ⚠️ **Important:** This container has no ability for persistent storage - your configuration will be lost when restarting the instance.",
+      "categories": [
+        "Networking",
+        "Security",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/nessus/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "NetBox",
+      "description": "This Docker Compose configuration sets up Netbox with Tailscale as a sidecar container to securely access your Network layout over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy, ensuring that they are only accessible within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/netbox/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "SUPER_SECRET",
+          "label": "Super Secret",
+          "default": "t3Ph722qJ5QHeQ1qfu36"
+        },
+        {
+          "name": "CORS_ORIGIN_ALLOW_ALL",
+          "label": "Cors Origin Allow All",
+          "default": "True"
+        },
+        {
+          "name": "DB_HOST",
+          "label": "Db Host",
+          "default": "${SERVICE}-postgres"
+        },
+        {
+          "name": "DB_NAME",
+          "label": "Db Name",
+          "default": "netbox"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "label": "Db Password",
+          "default": "${SUPER_SECRET}DB"
+        },
+        {
+          "name": "DB_USER",
+          "label": "Db User",
+          "default": "netbox"
+        },
+        {
+          "name": "DB_WAIT_DEBUG",
+          "label": "Db Wait Debug",
+          "default": "1"
+        },
+        {
+          "name": "EMAIL_FROM",
+          "label": "Email From",
+          "default": "netbox@bar.com"
+        },
+        {
+          "name": "EMAIL_PASSWORD",
+          "label": "Email Password"
+        },
+        {
+          "name": "EMAIL_PORT",
+          "label": "Email Port",
+          "default": "25"
+        },
+        {
+          "name": "EMAIL_SERVER",
+          "label": "Email Server",
+          "default": "localhost"
+        },
+        {
+          "name": "EMAIL_SSL_CERTFILE",
+          "label": "Email Ssl Certfile"
+        },
+        {
+          "name": "EMAIL_SSL_KEYFILE",
+          "label": "Email Ssl Keyfile"
+        },
+        {
+          "name": "EMAIL_TIMEOUT",
+          "label": "Email Timeout",
+          "default": "5"
+        },
+        {
+          "name": "EMAIL_USERNAME",
+          "label": "Email Username",
+          "default": "netbox"
+        },
+        {
+          "name": "EMAIL_USE_SSL",
+          "label": "Email Use Ssl",
+          "default": "false"
+        },
+        {
+          "name": "EMAIL_USE_TLS",
+          "label": "Email Use Tls",
+          "default": "false"
+        },
+        {
+          "name": "GRAPHQL_ENABLED",
+          "label": "Graphql Enabled",
+          "default": "true"
+        },
+        {
+          "name": "MEDIA_ROOT",
+          "label": "Media Root",
+          "default": "/opt/netbox/netbox/media"
+        },
+        {
+          "name": "METRICS_ENABLED",
+          "label": "Metrics Enabled",
+          "default": "false"
+        },
+        {
+          "name": "REDIS_CACHE_DATABASE",
+          "label": "Redis Cache Database",
+          "default": "1"
+        },
+        {
+          "name": "REDIS_CACHE_HOST",
+          "label": "Redis Cache Host",
+          "default": "${SERVICE}-rediscache"
+        },
+        {
+          "name": "REDIS_CACHE_INSECURE_SKIP_TLS_VERIFY",
+          "label": "Redis Cache Insecure Skip Tls Verify",
+          "default": "false"
+        },
+        {
+          "name": "REDIS_CACHE_PASSWORD",
+          "label": "Redis Cache Password",
+          "default": "${SUPER_SECRET}REDIS"
+        },
+        {
+          "name": "REDIS_CACHE_SSL",
+          "label": "Redis Cache Ssl",
+          "default": "false"
+        },
+        {
+          "name": "REDIS_DATABASE",
+          "label": "Redis Database",
+          "default": "0"
+        },
+        {
+          "name": "REDIS_HOST",
+          "label": "Redis Host",
+          "default": "${SERVICE}-rediscache"
+        },
+        {
+          "name": "REDIS_INSECURE_SKIP_TLS_VERIFY",
+          "label": "Redis Insecure Skip Tls Verify",
+          "default": "false"
+        },
+        {
+          "name": "REDIS_PASSWORD",
+          "label": "Redis Password",
+          "default": "${SUPER_SECRET}REDIS"
+        },
+        {
+          "name": "REDIS_SSL",
+          "label": "Redis Ssl",
+          "default": "false"
+        },
+        {
+          "name": "RELEASE_CHECK_URL",
+          "label": "Release Check Url",
+          "default": "https://api.github.com/repos/netbox-community/netbox/releases"
+        },
+        {
+          "name": "SECRET_KEY",
+          "label": "Secret Key",
+          "default": "${SUPER_SECRET}_SECRET!"
+        },
+        {
+          "name": "SKIP_SUPERUSER",
+          "label": "Skip Superuser",
+          "default": "true"
+        },
+        {
+          "name": "WEBHOOKS_ENABLED",
+          "label": "Webhooks Enabled",
+          "default": "true"
+        },
+        {
+          "name": "POSTGRES_DB",
+          "label": "Postgres Db",
+          "default": "netbox"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Postgres Password",
+          "default": "${SUPER_SECRET}DB"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "Postgres User",
+          "default": "netbox"
+        },
+        {
+          "name": "REDIS_PASSWORD",
+          "label": "Redis Password",
+          "default": "${SUPER_SECRET}REDIS"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Nextcloud",
+      "description": "This Docker Compose configuration sets up Nextcloud Server with Tailscale as a sidecar container to securely manage and access your personal cloud storage over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Nextcloud instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/nextcloud/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "MYSQL_ROOT_PASSWORD",
+          "label": "Mysql Root Password",
+          "default": "//Insert super root strong password"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "label": "Mysql Password",
+          "default": "//Insert super strong password"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Node-RED",
+      "description": "This Docker Compose configuration sets up Node-RED with Tailscale as a sidecar container to securely access and manage your flow-based programming tool over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Node-RED instance, ensuring it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/nodered/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "ntfy",
+      "description": "This Docker Compose configuration sets up ntfy with Tailscale as a sidecar container to securely deliver push notifications over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you enhance the privacy and security of your ntfy instance, ensuring it is only accessible within your Tailscale network.",
+      "categories": [
+        "Utilities",
+        "Notifications",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/ntfy/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Picard",
+      "description": "This Docker Compose setup deploys **MusicBrainz Picard** alongside a **Tailscale sidecar container**, allowing secure access to your self-hosted music tagging and metadata management environment over your private **Tailscale network**. With this setup, Picard remains **private and reachable only from trusted devices within your Tailnet**, ensuring your media metadata library stays secure and isolated from the public internet.",
+      "categories": [
+        "Media",
+        "Music",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/picard/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Pi-hole",
+      "description": "This Docker Compose configuration sets up Pi-hole with Tailscale as a sidecar container to securely manage and access your network-wide ad blocker over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Pi-hole instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/pihole/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Pingvin Share",
+      "description": "**PLEASE NOTE** As per June 29, 2025 pingvin-share **has been archived** by the developer.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/pingvin-share/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Plex",
+      "description": "This Docker Compose configuration sets up Plex Media Server with Tailscale as a sidecar container to securely manage and stream your media over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your media server, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/plex/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Pocket ID",
+      "description": "This Docker Compose configuration sets up Pocket ID with Tailscale as a sidecar container to securely manage and access your decentralized identity service over a private Tailscale network. By integrating Tailscale, you can ensure that your Pocket ID instance remains private and accessible only to authorized devices within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "Security",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/pocket-id/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "APP_URL",
+          "label": "App Url",
+          "default": "https://pocket-id.<YOUR-TAILSCALE-DOMAIN>.ts.net"
+        },
+        {
+          "name": "ENCRYPTION_KEY",
+          "label": "Encryption Key"
+        },
+        {
+          "name": "TRUST_PROXY",
+          "label": "Trust Proxy",
+          "default": "true"
+        },
+        {
+          "name": "MAXMIND_LICENSE_KEY",
+          "label": "Maxmind License Key"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Portainer",
+      "description": "This Docker Compose configuration sets up Portainer with Tailscale as a sidecar container to securely manage and monitor your Docker environments over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Portainer instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/portainer/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Portracker",
+      "description": "This Docker Compose configuration sets up Portracker with Tailscale as a sidecar container to securely access your lightweight port monitoring and tracking tool over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and accessibility of your Portracker instance, ensuring it is only available within your Tailscale network.",
+      "categories": [
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/portracker/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Posterizarr",
+      "description": "This Docker Compose configuration sets up **Posterizarr** with a Tailscale sidecar container, enabling secure and private access to your automated poster and artwork management service for *Radarr* and *Sonarr*. With this setup, Posterizarr is **only accessible from within your Tailscale network**, keeping your media automation environment clean, private, and secure.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/posterizarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Prowlarr",
+      "description": "This Docker Compose configuration sets up Prowlarr with Tailscale as a sidecar container to securely manage and access your indexer management system over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Prowlarr instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/prowlarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "qBittorrent",
+      "description": "This Docker Compose configuration sets up qBittorrent with Tailscale as a sidecar container to securely manage and access your torrent client over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your qBittorrent instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "Downloads",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/qbittorrent/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Radarr",
+      "description": "This Docker Compose configuration sets up Radarr with Tailscale as a sidecar container to securely manage and access your media management system over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Radarr instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/radarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Recyclarr",
+      "description": "This Docker Compose configuration sets up **Recyclarr** with a Tailscale sidecar container, allowing secure and private synchronization of quality profiles, custom formats, and media settings across your *Radarr* and *Sonarr* instances. With this setup, Recyclarr is **only reachable from within your Tailscale network**, keeping your media automation infrastructure fully private and protected.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/recyclarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Resilio Sync",
+      "description": "This Docker Compose configuration sets up Resilio Sync with Tailscale as a sidecar container to securely synchronize and share your files over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your file synchronization, ensuring that Resilio Sync is only accessible within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/resilio-sync/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "SearXNG",
+      "description": "This Docker Compose configuration sets up searXNG with Tailscale as a sidecar container, enabling secure access to your private metasearch engine over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you can ensure that your searXNG instance is accessible only within your Tailscale network, providing an additional layer of security and privacy for your searches.",
+      "categories": [
+        "Development Tools",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/searxng/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "TAILNET_NAME",
+          "label": "Tailnet Name"
+        },
+        {
+          "name": "SEARXNG_SECRET",
+          "label": "Searxng Secret",
+          "default": "# Generate a random secret for searxng, e.g. using `openssl rand -hex 32`"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Seerr",
+      "description": "This Docker Compose configuration sets up Seerr with Tailscale as a sidecar container to securely manage and access your request management system over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you enhance the privacy and security of your Seerr instance, ensuring it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/seerr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Slink",
+      "description": "This Docker Compose configuration sets up Slink with Tailscale as a sidecar container to securely manage and access your local file-sharing system over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you can ensure that your Slink instance is both secure and private, accessible only within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/slink/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Sonarr",
+      "description": "This Docker Compose configuration sets up Sonarr with Tailscale as a sidecar container to securely manage and access your media management system over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Sonarr instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/sonarr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Speedtest Tracker",
+      "description": "This Docker Compose configuration sets up Speedtest Tracker with Tailscale as a sidecar container to securely monitor and access your internet speed tracking tool over a private Tailscale network. By integrating Tailscale, you can ensure that your Speedtest Tracker instance remains private and accessible only to authorized devices on your Tailscale network.",
+      "categories": [
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/speedtest-tracker/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Stirling-PDF",
+      "description": "This Docker Compose configuration sets up Stirling-PDF with Tailscale as a sidecar container to securely manage and manipulate PDF files over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your PDF processing, ensuring that the Stirling-PDF interface is only accessible within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/stirlingpdf/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Subtrackr",
+      "description": "This Docker Compose configuration sets up **Subtrackr** with Tailscale as a sidecar container, enabling secure access to your self-hosted subscription tracking platform from anywhere on your private Tailscale network. With this setup, your Subtrackr instance remains fully private and accessible only from authorized devices.",
+      "categories": [
+        "Productivity",
+        "Finance",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/subtrackr/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Swing Music",
+      "description": "This Docker Compose configuration sets up **Swing Music** with a Tailscale sidecar container, enabling secure access to your self-hosted music streaming server over your private Tailscale network. With this setup, your Swing Music instance remains **private and accessible only from authorized devices on your Tailnet**.",
+      "categories": [
+        "Media",
+        "Music",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/swingmx/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Tailscale Exit Node",
+      "description": "This Docker Compose configuration sets up a Tailscale Exit Node, allowing devices in your Tailscale network to route their internet traffic securely through this node. By configuring a Tailscale Exit Node, you can enhance the privacy and security of your internet browsing by routing traffic through a trusted network, such as your home or office, rather than relying on potentially less secure public networks.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/tailscale-exit-node/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Tandoor Recipes",
+      "description": "This Docker Compose configuration sets up **Tandoor Recipes** with Tailscale as a sidecar container, which enables a secure access to your personal recipe and meal planning platform from your Tailscale network. As with all other services inside this repository, your service stays fully private and accessible only to your authorized devices.",
+      "categories": [
+        "Food & Wellness",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/tandoor/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "SECRET_KEY",
+          "label": "Secret Key"
+        },
+        {
+          "name": "ALLOWED_HOSTS",
+          "label": "Allowed Hosts",
+          "default": "tandoor.yourtailnet.ts.net"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "label": "Db Password",
+          "default": "postgres"
+        },
+        {
+          "name": "DB_USERNAME",
+          "label": "Db Username",
+          "default": "postgres"
+        },
+        {
+          "name": "DB_DATABASE_NAME",
+          "label": "Db Database Name",
+          "default": "tandoor"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Tautulli",
+      "description": "This Docker Compose configuration sets up Tautulli for Docker with Tailscale as a sidecar container to securely monitor and manage your Plex Media Server over a private Tailscale network. By integrating Tailscale in a sidecar configuration, you enhance the security and privacy of your Tautulli installation, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Media",
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/tautulli/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Technitium DNS",
+      "description": "This Docker Compose configuration sets up a Technitium DNS Server with Tailscale as a sidecar container ......",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/technitium/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "DNS_SERVER1",
+          "label": "Dns Server1",
+          "default": "9.9.9.9"
+        },
+        {
+          "name": "DNS_SERVER2",
+          "label": "Dns Server2",
+          "default": "8.8.4.4"
+        },
+        {
+          "name": "ADMIN_PASSWORD",
+          "label": "Admin Password",
+          "default": "ChangeME"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Tracktor",
+      "description": "This Docker Compose configuration sets up **Tracktor** with a **Tailscale sidecar** container, enabling secure access to your self-hosted vehicle management interface over your private Tailscale network. With this setup, your Tracktor instance remains **private and accessible only from authorized devices on your Tailnet**, keeping sensitive vehicle data, documents, and analytics off the public internet.",
+      "categories": [
+        "Utilities",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/tracktor/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        },
+        {
+          "name": "TS_TAILNET",
+          "label": "Ts Tailnet",
+          "default": "# Your Tailscale tailnet name (e.g., my-tailnet)."
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Traefik",
+      "description": "This Docker Compose configuration sets up Traefik with Tailscale as a sidecar container to securely manage and route your traffic over a private Tailscale network. By integrating Tailscale, you can enhance the security and privacy of your Traefik instance, ensuring that access is restricted to devices within your Tailscale network.",
+      "categories": [
+        "Networking",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/traefik/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Uptime Kuma",
+      "description": "This Docker Compose configuration sets up Uptime Kuma with Tailscale as a sidecar container to securely monitor your services and websites over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your monitoring dashboard, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Monitoring",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/uptime-kuma/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Vaultwarden",
+      "description": "This Docker Compose configuration sets up Vaultwarden with Tailscale as a sidecar container to securely manage and access your password manager over a private Tailscale network. By using Tailscale in a sidecar configuration, you can enhance the security and privacy of your Vaultwarden instance, ensuring that it is only accessible within your Tailscale network.",
+      "categories": [
+        "Productivity",
+        "Security",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/vaultwarden/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    },
+    {
+      "type": 3,
+      "title": "Wallos",
+      "description": "This Docker Compose configuration sets up Wallos with Tailscale as a sidecar container, enabling secure, private access to your self-hosted subscription tracker over your Tailscale network. With this setup, Wallos is never exposed to the public internet—access is limited strictly to devices authenticated through your Tailscale Tailnet.",
+      "categories": [
+        "Productivity",
+        "Finance",
+        "scaletail"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "repository": {
+        "url": "https://github.com/alarawms/ScaleTail",
+        "stackfile": "synology/services/wallos/compose.yaml"
+      },
+      "env": [
+        {
+          "name": "TS_AUTHKEY",
+          "label": "Tailscale Auth Key",
+          "description": "Generate at https://login.tailscale.com/admin/settings/keys"
+        },
+        {
+          "name": "DATA_ROOT",
+          "label": "Data Root Path",
+          "default": "/volume1/docker"
+        },
+        {
+          "name": "PUID",
+          "label": "User ID",
+          "default": "1026"
+        },
+        {
+          "name": "PGID",
+          "label": "Group ID",
+          "default": "100"
+        },
+        {
+          "name": "TZ",
+          "label": "Timezone",
+          "default": "UTC"
+        }
+      ]
+    }
+  ]
+}
