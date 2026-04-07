@@ -15,7 +15,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/actual-budget/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -58,7 +58,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/adguardhome/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -101,7 +101,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/adguardhome-sync/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -144,7 +144,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/anchor/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -187,7 +187,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/arcane/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -235,7 +235,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/audiobookshelf/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -278,7 +278,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/bazarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -321,7 +321,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/bentopdf/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -364,7 +364,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/beszel-agent/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -407,7 +407,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/beszel-hub/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -450,7 +450,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/booklore/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -513,7 +513,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/caddy/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -556,7 +556,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/changedetection/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -599,7 +599,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/clipcascade/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -642,7 +642,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/coder/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -710,7 +710,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/configarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -753,7 +753,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/convertx/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -796,7 +796,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/copyparty/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -839,7 +839,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/cyberchef/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -882,7 +882,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/ddns-updater/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -925,7 +925,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/dockhand/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -968,7 +968,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/docmost/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1011,7 +1011,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/donetick/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1054,7 +1054,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/dozzle/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1097,7 +1097,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/dumbdo/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1140,7 +1140,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/eigenfocus/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1183,7 +1183,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/excalidraw/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1226,7 +1226,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/flatnotes/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1269,7 +1269,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/forgejo/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1312,7 +1312,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/formbricks/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1355,7 +1355,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/fossflow/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1399,7 +1399,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/frigate/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1442,7 +1442,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/ghost/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1485,7 +1485,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/gitsave/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1543,7 +1543,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/glance/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1586,7 +1586,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/gokapi/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1630,7 +1630,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/gotify/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1673,7 +1673,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/grampsweb/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1716,7 +1716,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/haptic/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1760,7 +1760,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/hemmelig/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1804,7 +1804,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/homarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1847,7 +1847,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/home-assistant/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1890,7 +1890,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/homebox/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1933,7 +1933,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/homepage/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -1981,7 +1981,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/hytale/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2045,7 +2045,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/immich/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2118,7 +2118,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/isley/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2161,7 +2161,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/it-tools/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2204,7 +2204,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/jellyfin/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2247,7 +2247,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/kaneo/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2300,7 +2300,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/karakeep/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2378,7 +2378,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/kavita/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2421,7 +2421,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/languagetool/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2464,7 +2464,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/linkding/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2507,7 +2507,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/lube-logger/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2570,7 +2570,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/mattermost/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2718,7 +2718,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/mealie/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2761,7 +2761,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/memos/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2804,7 +2804,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/metube/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2847,7 +2847,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/miniflux/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2918,7 +2918,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/miniqr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -2961,7 +2961,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/nanote/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3005,7 +3005,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/navidrome/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3049,7 +3049,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/nessus/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3092,7 +3092,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/netbox/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3322,7 +3322,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/nextcloud/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3375,7 +3375,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/nodered/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3419,7 +3419,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/ntfy/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3463,7 +3463,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/picard/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3506,7 +3506,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/pihole/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3549,7 +3549,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/pingvin-share/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3592,7 +3592,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/plex/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3636,7 +3636,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/pocket-id/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3697,7 +3697,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/portainer/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3740,7 +3740,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/portracker/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3783,7 +3783,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/posterizarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3826,7 +3826,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/prowlarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3870,7 +3870,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/qbittorrent/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3913,7 +3913,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/radarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3956,7 +3956,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/recyclarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -3999,7 +3999,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/resilio-sync/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4042,7 +4042,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/searxng/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4094,7 +4094,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/seerr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4137,7 +4137,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/slink/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4180,7 +4180,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/sonarr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4223,7 +4223,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/speedtest-tracker/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4266,7 +4266,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/stirlingpdf/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4310,7 +4310,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/subtrackr/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4354,7 +4354,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/swingmx/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4397,7 +4397,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/tailscale-exit-node/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4440,7 +4440,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/tandoor/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4508,7 +4508,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/tautulli/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4551,7 +4551,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/technitium/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4609,7 +4609,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/tracktor/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4657,7 +4657,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/traefik/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4700,7 +4700,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/uptime-kuma/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4744,7 +4744,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/vaultwarden/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
@@ -4788,7 +4788,7 @@
       "repository": {
         "url": "https://github.com/alarawms/ScaleTail",
         "stackfile": "synology/services/wallos/compose.yaml",
-        "branch": "synology"
+        "branch": "main"
       },
       "env": [
         {
