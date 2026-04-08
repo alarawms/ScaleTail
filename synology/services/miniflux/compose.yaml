@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-miniflux   # Name for local container management
+    hostname: miniflux   # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/miniflux/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/miniflux/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,20 +39,17 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: miniflux/miniflux:latest # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-miniflux   # Name for local container management
     environment:
     - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost/${POSTGRES_DB}?sslmode=disable
     - RUN_MIGRATIONS=1
     - CREATE_ADMIN=1
     - ADMIN_USERNAME=${ADMIN_USERNAME}
     - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-    - BASE_URL=https://${SERVICE}.${TAILNET_NAME}   # Change to your tailnet name
+    - BASE_URL=https://miniflux.${TAILNET_NAME}     # Change to your tailnet name
     depends_on:
       tailscale:
         condition: service_healthy
@@ -68,18 +65,18 @@ services:
 
   # Database
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=miniflux
     - com.portainer.category=scaletail
   db:
     image: postgres:15-alpine
     network_mode: service:tailscale # Join the same network namespace to be accessible via localhost
-    container_name: app-${SERVICE}-db
+    container_name: app-miniflux-db
     environment:
     - POSTGRES_USER=${POSTGRES_USER}
     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     - POSTGRES_DB=${POSTGRES_DB}
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/db:/var/lib/postgresql/data
+    - ${DATA_ROOT:-/volume1/docker}/miniflux/miniflux-data/db:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
@@ -87,5 +84,5 @@ services:
       retries: 5
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=miniflux
     - com.portainer.category=scaletail

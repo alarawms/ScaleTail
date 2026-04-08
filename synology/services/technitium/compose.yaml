@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-technitium # Name for local container management
+    hostname: technitium # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/technitium/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/technitium/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     ports:
     - "5380:5380/tcp"   #DNS web console (HTTP)
       # - "53443:53443/tcp" #DNS web console (HTTPS)
@@ -51,15 +51,12 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: technitium/dns-server:latest # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-technitium # Name for local container management
     environment:
-    - DNS_SERVER_DOMAIN=${SERVICE}.local   #The primary domain name used by this DNS Server to identify itself.
+    - DNS_SERVER_DOMAIN=technitium.local   #The primary domain name used by this DNS Server to identify itself.
     - DNS_SERVER_ADMIN_PASSWORD=${ADMIN_PASSWORD}   #DNS web console admin user password.
       # - DNS_SERVER_ADMIN_PASSWORD_FILE=password.txt #The path to a file that contains a plain text password for the DNS web console admin user.
     - DNS_SERVER_PREFER_IPV6=false   #DNS Server will use IPv6 for querying whenever possible with this option enabled.
@@ -80,17 +77,17 @@ services:
       # - DNS_SERVER_FORWARDER_PROTOCOL=Tcp #Forwarder protocol options: Udp, Tcp, Tls, Https, HttpsJson.
       # - DNS_SERVER_LOG_USING_LOCAL_TIME=true #Enable this option to use local time instead of UTC for logging.
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/app/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/technitium/technitium-data/app/config:/config
     depends_on:
       tailscale:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "${SERVICE}"] # Check if ${SERVICE} process is running
+      test: ["CMD", "pgrep", "-f", "technitium"] # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
       timeout: 10s # Time to wait for the check to succeed
       retries: 3 # Number of retries before marking as unhealthy
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=technitium
     - com.portainer.category=scaletail

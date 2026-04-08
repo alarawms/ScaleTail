@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-ghost      # Name for local container management
+    hostname: ghost      # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/ghost/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/ghost/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,13 +39,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: ghost:5-alpine # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-ghost      # Name for local container management
     environment:
       # see https://ghost.org/docs/config/#configuration-options
       database__client: mysql
@@ -60,8 +57,8 @@ services:
       # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
       #NODE_ENV: development
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/app/config:/config
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/ghost:/var/lib/ghost/content
+    - ${DATA_ROOT:-/volume1/docker}/ghost/ghost-data/app/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/ghost/ghost-data/ghost:/var/lib/ghost/content
     depends_on:
       tailscale:
         condition: service_healthy
@@ -74,16 +71,16 @@ services:
     restart: always
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=ghost
     - com.portainer.category=scaletail
   db:
     image: mysql:8.0
-    container_name: db-${SERVICE} # Name for local container management
+    container_name: db-ghost      # Name for local container management
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/db:/var/lib/mysql
+    - ${DATA_ROOT:-/volume1/docker}/ghost/ghost-data/db:/var/lib/mysql
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=ghost
     - com.portainer.category=scaletail

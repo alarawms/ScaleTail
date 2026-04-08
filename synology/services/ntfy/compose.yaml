@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-ntfy       # Name for local container management
+    hostname: ntfy       # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/ntfy/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/ntfy/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -38,18 +38,15 @@ services:
       start_period: 10s # Time to wait before starting health checks
     restart: always
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
     command:
     - serve
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/cache:/var/cache/ntfy
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/etc:/etc/ntfy
-    image: ${IMAGE_URL} # Image to be used
+    - ${DATA_ROOT:-/volume1/docker}/ntfy/ntfy-data/cache:/var/cache/ntfy
+    - ${DATA_ROOT:-/volume1/docker}/ntfy/ntfy-data/etc:/etc/ntfy
+    image: binwiederhier/ntfy # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-ntfy       # Name for local container management
     environment:
     - TZ=${TZ:-UTC}
     user: 1000:1000
@@ -64,5 +61,5 @@ services:
       start_period: 40s
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=ntfy
     - com.portainer.category=scaletail

@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-home-assistant # Name for local container management
+    hostname: home-assistant # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/home-assistant/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/home-assistant/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,20 +39,17 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: ghcr.io/home-assistant/home-assistant:stable # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-home-assistant # Name for local container management
     privileged: true
     environment:
     - PUID=${PUID:-1026}
     - PGID=${PGID:-100}
     - TZ=${TZ:-UTC}
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/home-assistant/home-assistant-data/config:/config
     - /etc/localtime:/etc/localtime:ro
     - /run/dbus:/run/dbus:ro
     depends_on:
@@ -66,5 +63,5 @@ services:
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=home-assistant
     - com.portainer.category=scaletail

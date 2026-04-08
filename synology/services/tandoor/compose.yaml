@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-tandoor    # Name for local container management
+    hostname: tandoor    # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/tandoor/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/tandoor/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,21 +39,18 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: vabene1111/recipes # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-tandoor    # Name for local container management
     environment:
     - PUID=${PUID:-1026}
     - PGID=${PGID:-100}
     - TZ=${TZ}
     - TANDOOR_PORT=${SERVICEPORT}
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/staticfiles:/opt/recipes/statisfiles
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/mediafiles:/opt/recipes/mediafiles
+    - ${DATA_ROOT:-/volume1/docker}/tandoor/tandoor-data/staticfiles:/opt/recipes/statisfiles
+    - ${DATA_ROOT:-/volume1/docker}/tandoor/tandoor-data/mediafiles:/opt/recipes/mediafiles
     env_file:
     - ./.env
     depends_on:
@@ -62,7 +59,7 @@ services:
       database:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "${SERVICE}"] # Check if ${SERVICE} process is running
+      test: ["CMD", "pgrep", "-f", "tandoor"]    # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
       timeout: 10s # Time to wait for the check to succeed
       retries: 3 # Number of retries before marking as unhealthy
@@ -70,18 +67,18 @@ services:
     restart: always
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=tandoor
     - com.portainer.category=scaletail
   database:
     image: postgres:16-alpine
     network_mode: service:tailscale
-    container_name: app-${SERVICE}-database
+    container_name: app-tandoor-database
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_DB: ${DB_DATABASE_NAME}
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/database:/var/lib/postgresql/data
+    - ${DATA_ROOT:-/volume1/docker}/tandoor/tandoor-data/database:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE_NAME}"] # Check if postgres is ready
       interval: 1m # How often to perform the check
@@ -90,5 +87,5 @@ services:
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=tandoor
     - com.portainer.category=scaletail

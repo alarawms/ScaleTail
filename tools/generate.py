@@ -477,44 +477,75 @@ def inject_portainer_labels(doc: dict, service_name: str, ctx: TransformContext)
             )
 
 
-def inject_env_file_shared(doc: dict, service_name: str, ctx: TransformContext) -> None:
-    """Add env_file entries to the tailscale service for shared auth key support.
+# ---------------------------------------------------------------------------
+# Post-transform: inline service-specific constants
+# ---------------------------------------------------------------------------
 
-    Ensures the tailscale service has:
-        env_file:
-          - ../../.env.shared
-          - .env
+
+def _replace_in_value(value: str, replacements: dict[str, str]) -> str:
+    """Replace ${KEY} patterns in a string value."""
+    result = value
+    for key, replacement in replacements.items():
+        result = result.replace(f"${{{key}}}", replacement)
+    return result
+
+
+def _inline_vars_recursive(node: Any, replacements: dict[str, str]) -> None:
+    """Recursively replace ${KEY} patterns in all string values of a YAML doc."""
+    if isinstance(node, dict):
+        for k in list(node.keys()):
+            v = node[k]
+            if isinstance(v, str):
+                new_v = _replace_in_value(v, replacements)
+                if new_v != v:
+                    node[k] = new_v
+            elif isinstance(v, (dict, list)):
+                _inline_vars_recursive(v, replacements)
+    elif isinstance(node, list):
+        for i, item in enumerate(node):
+            if isinstance(item, str):
+                new_item = _replace_in_value(item, replacements)
+                if new_item != item:
+                    node[i] = new_item
+            elif isinstance(item, (dict, list)):
+                _inline_vars_recursive(item, replacements)
+
+
+def _read_env_vars(env_path: Path) -> dict[str, str]:
+    """Read key=value pairs from a .env file, skipping comments."""
+    env_vars: dict[str, str] = {}
+    if not env_path.exists():
+        return env_vars
+    for line in env_path.read_text().splitlines():
+        stripped = line.strip()
+        if stripped.startswith("#") or "=" not in stripped:
+            continue
+        k, v = stripped.split("=", 1)
+        env_vars[k] = v
+    return env_vars
+
+
+def inline_service_constants(
+    doc: dict, service_name: str, source_env_path: Path
+) -> None:
+    """Inline SERVICE and IMAGE_URL into the compose doc.
+
+    Reads the source .env to get IMAGE_URL, and uses service_name for SERVICE.
+    This makes compose files self-contained for Portainer's stack editor —
+    the user only needs to provide TS_AUTHKEY (and optionally override defaults).
     """
-    ts_key = _find_tailscale_service(doc)
-    if ts_key is None:
-        return
+    env_vars = _read_env_vars(source_env_path)
 
-    svc = doc["services"][ts_key]
-    desired = ["../../.env.shared", ".env"]
+    inline_map = {"SERVICE": service_name}
+    if "IMAGE_URL" in env_vars and env_vars["IMAGE_URL"]:
+        inline_map["IMAGE_URL"] = env_vars["IMAGE_URL"]
 
-    existing = svc.get("env_file")
-    if existing is None:
-        svc["env_file"] = list(desired)
-        logger.info(
-            "%s: injected env_file on tailscale service", service_name
-        )
-    elif isinstance(existing, list):
-        for entry in desired:
-            if entry not in [str(e) for e in existing]:
-                existing.append(entry)
-        logger.info(
-            "%s: updated env_file on tailscale service", service_name
-        )
-    elif isinstance(existing, str):
-        # Convert string to list and add our entries
-        current = [existing]
-        for entry in desired:
-            if entry not in current:
-                current.append(entry)
-        svc["env_file"] = current
-        logger.info(
-            "%s: converted env_file to list on tailscale service", service_name
-        )
+    _inline_vars_recursive(doc, inline_map)
+    logger.info(
+        "%s: inlined constants: %s",
+        service_name,
+        ", ".join(f"{k}={v}" for k, v in inline_map.items()),
+    )
 
 
 # Ordered list of all transforms. Order matters.
@@ -527,7 +558,6 @@ TRANSFORMS: list[tuple[str, Any]] = [
     ("parameterize_puid_pgid", parameterize_puid_pgid),
     ("parameterize_tz", parameterize_tz),
     ("inject_portainer_labels", inject_portainer_labels),
-    ("inject_env_file_shared", inject_env_file_shared),
 ]
 
 
@@ -837,6 +867,10 @@ def generate_service(
             warning = f"{service_name}: transform {transform_name} failed: {e}"
             result.warnings.append(warning)
             logger.warning(warning)
+
+    # Step 2.5: Inline service-specific constants (SERVICE, IMAGE_URL)
+    source_env_path = source_dir / service_name / ".env"
+    inline_service_constants(doc, service_name, source_env_path)
 
     # Step 3: Write compose
     out_compose = output_dir / "services" / service_name / "compose.yaml"

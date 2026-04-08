@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-grampsweb  # Name for local container management
+    hostname: grampsweb  # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,13 +39,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application: &grampsweb
-    image: ${IMAGE_URL} # Image to be used
+    image: ghcr.io/gramps-project/grampsweb # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-grampsweb  # Name for local container management
     environment:
       PUID: ${PUID:-1026}
       PGID: ${PGID:-100}
@@ -55,14 +52,14 @@ services:
       GRAMPSWEB_CELERY_CONFIG__result_backend: "redis://grampsweb_redis:6379/0"
       GRAMPSWEB_RATELIMIT_STORAGE_URI: redis://grampsweb_redis:6379/1
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_users:/app/users # persist user database
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_index:/app/indexdir # persist search index
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_thumb_cache:/app/thumbnail_cache # persist thumbnails
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_cache:/app/cache # persist export and report caches
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_secret:/app/secret # persist flask secret
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_db:/root/.gramps/grampsdb # persist Gramps database
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_media:/app/media # persist media files
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/gramps_tmp:/tmp
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_users:/app/users # persist user database
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_index:/app/indexdir # persist search index
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_thumb_cache:/app/thumbnail_cache # persist thumbnails
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_cache:/app/cache # persist export and report caches
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_secret:/app/secret # persist flask secret
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_db:/root/.gramps/grampsdb # persist Gramps database
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_media:/app/media # persist media files
+    - ${DATA_ROOT:-/volume1/docker}/grampsweb/grampsweb-data/gramps_tmp:/tmp
     depends_on:
       tailscale:
         condition: service_healthy
@@ -71,20 +68,21 @@ services:
     restart: always
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=grampsweb
     - com.portainer.category=scaletail
   grampsweb_celery:
     <<: *grampsweb
                     # YAML merge key copying the entire grampsweb service config
     ports: []
-    container_name: app-${SERVICE}-celery
+    container_name: app-grampsweb-celery
     depends_on:
     - grampsweb_redis
     command: celery -A gramps_webapi.celery worker --loglevel=INFO --concurrency=2
 
+    image: ghcr.io/gramps-project/grampsweb
   grampsweb_redis:
     image: docker.io/library/redis:7.2.4-alpine
-    container_name: app-${SERVICE}-redis
+    container_name: app-grampsweb-redis
     healthcheck:
       test: ["CMD", "redis-cli", "ping"] # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
@@ -93,5 +91,5 @@ services:
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=grampsweb
     - com.portainer.category=scaletail

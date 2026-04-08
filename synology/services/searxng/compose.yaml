@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-searxng    # Name for local container management
+    hostname: searxng    # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/searxng/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/searxng/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,20 +39,17 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: docker.io/searxng/searxng # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-searxng    # Name for local container management
     environment:
     - PUID=${PUID:-1026}
     - PGID=${PGID:-100}
     - TZ=${TZ:-UTC}
     - SEARXNG_BASE_URL=https://searxng.${TAILNET_NAME}.ts.net/
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/searxng:/etc/searxng:rw
+    - ${DATA_ROOT:-/volume1/docker}/searxng/searxng:/etc/searxng:rw
     cap_drop:
     - ALL
     cap_add:
@@ -72,7 +69,7 @@ services:
         condition: service_started
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=searxng
     - com.portainer.category=scaletail
   redis:
     container_name: redis-searxng
@@ -94,7 +91,7 @@ services:
         max-file: "1"
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=searxng
     - com.portainer.category=scaletail
 volumes:
   valkey-data2:

@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-homarr     # Name for local container management
+    hostname: homarr     # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/homarr/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/homarr/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,13 +39,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: ghcr.io/homarr-labs/homarr # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-homarr     # Name for local container management
     environment:
     - PUID=${PUID:-1026}
     - PGID=${PGID:-100}
@@ -53,17 +50,17 @@ services:
     - SECRET_ENCRYPTION_KEY=    # Please generate a key with: openssl rand -hex 32
     volumes:
       # - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/appdata:/appdata
+    - ${DATA_ROOT:-/volume1/docker}/homarr/homarr-data/appdata:/appdata
     depends_on:
       tailscale:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "${SERVICE}"] # Check if ${SERVICE} process is running
+      test: ["CMD", "pgrep", "-f", "homarr"]     # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
       timeout: 10s # Time to wait for the check to succeed
       retries: 3 # Number of retries before marking as unhealthy
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=homarr
     - com.portainer.category=scaletail

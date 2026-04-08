@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-traefik    # Name for local container management
+    hostname: traefik    # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/traefik/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/traefik/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     ports:
     - 0.0.0.0:${SERVICEPORT}:${SERVICEPORT}   # Binding port ${SERVICE}PORT to the local network - may be removed if only exposure to your Tailnet is required
     # If any DNS issues arise, use your preferred DNS provider by uncommenting the config below
@@ -44,13 +44,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   traefik_proxy:
-    image: ${IMAGE_URL} # Image to be used
+    image: traefik:latest # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-traefik    # Name for local container management
     environment:
     - PUID=${PUID:-1026}
     - PGID=${PGID:-100}
@@ -59,7 +56,7 @@ services:
       tailscale:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "${SERVICE}"] # Check if ${SERVICE} process is running
+      test: ["CMD", "pgrep", "-f", "traefik"]    # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
       timeout: 10s # Time to wait for the check to succeed
       retries: 3 # Number of retries before marking as unhealthy
@@ -67,9 +64,9 @@ services:
     restart: always
     volumes:
     - type: bind
-      source: ./${SERVICE}-data/app/traefik.yml
+      source: ./traefik-data/app/traefik.yml
       target: /etc/traefik.yml
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/log/:/var/log/
+    - ${DATA_ROOT:-/volume1/docker}/traefik/traefik-data/log/:/var/log/
     - /var/run/docker.sock:/var/run/docker.sock   #Required for the Service Connections
     command:
     - "--api.insecure=true"
@@ -88,7 +85,7 @@ services:
     - traefik.http.routers.mydashboard.rule=Host(`traefik.domain.local`)
     - traefik.http.routers.mydashboard.service=api@internal
 
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=traefik
     - com.portainer.category=scaletail
   simpleweb:
     image: yeasy/simple-web:latest
@@ -96,5 +93,5 @@ services:
     - traefik.enable=true   # To 
     - traefik.http.routers.simpleweb.rule=Host(`simpleweb.domain.local`)
     - traefik.http.routers.simpleweb.entrypoints=web
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=traefik
     - com.portainer.category=scaletail

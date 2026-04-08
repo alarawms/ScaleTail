@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-frigate    # Name for local container management
+    hostname: frigate    # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/frigate/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/frigate/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     ports:
       # - "5000:5000" # Internal unauthenticated access. Expose carefully.
     - "8554:8554"   # RTSP feeds
@@ -47,13 +47,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: 'ghcr.io/blakeblackshear/frigate:stable # Docker image URL from container registry (e.g., adguard/adguard-home).' # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-frigate    # Name for local container management
     privileged: true # this may not be necessary for all setups, but Frigate needs access to the host's hardware for video processing. Adjust as needed for your specific setup and security requirements.
     stop_grace_period: 30s # allow enough time to shut down the various services
     shm_size: "512mb" # update for your cameras based on calculation above
@@ -70,8 +67,8 @@ services:
     - FRIGATE_RTSP_PASSWORD=password
     volumes:
     - /etc/localtime:/etc/localtime:ro
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/config:/config
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/storage:/media/frigate
+    - ${DATA_ROOT:-/volume1/docker}/frigate/frigate-data/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/frigate/frigate-data/storage:/media/frigate
     - type: tmpfs   # 1GB In-memory filesystem for recording segment storage
       target: /tmp/cache
       tmpfs:
@@ -80,12 +77,12 @@ services:
       tailscale:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "pgrep", "-f", "${SERVICE}"] # Check if ${SERVICE} process is running
+      test: ["CMD", "pgrep", "-f", "frigate"]    # Check if ${SERVICE} process is running
       interval: 1m # How often to perform the check
       timeout: 10s # Time to wait for the check to succeed
       retries: 3 # Number of retries before marking as unhealthy
       start_period: 30s # Time to wait before starting health checks
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=frigate
     - com.portainer.category=scaletail

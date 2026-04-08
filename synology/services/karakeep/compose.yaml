@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-karakeep   # Name for local container management
+    hostname: karakeep   # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/karakeep/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/karakeep/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -39,13 +39,10 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   web:
     image: ghcr.io/karakeep-app/karakeep:${KARAKEEP_VERSION:-release} # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE}-web # Name for local container management
+    container_name: app-karakeep-web   # Name for local container management
     env_file:
     - .env
     environment:
@@ -60,7 +57,7 @@ services:
       # By default, the data is stored in a docker volume called "data".
       # If you want to mount a custom directory, change the volume mapping to:
       # - /path/to/your/directory:/data
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/data:/data
+    - ${DATA_ROOT:-/volume1/docker}/karakeep/karakeep-data/data:/data
     depends_on:
       tailscale:
         condition: service_healthy
@@ -73,12 +70,12 @@ services:
     restart: always
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=karakeep
     - com.portainer.category=scaletail
   chrome:
     image: gcr.io/zenika-hub/alpine-chrome:123
     restart: always
-    container_name: app-${SERVICE}-chrome # Name for local container management
+    container_name: app-karakeep-chrome   # Name for local container management
     command:
     - --no-sandbox
     - --disable-gpu
@@ -88,18 +85,18 @@ services:
     - --hide-scrollbars
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=karakeep
     - com.portainer.category=scaletail
   meilisearch:
     image: getmeili/meilisearch:v1.11.1
     restart: always
-    container_name: app-${SERVICE}-meilisearch # Name for local container management
+    container_name: app-karakeep-meilisearch   # Name for local container management
     env_file:
     - .env
     environment:
       MEILI_NO_ANALYTICS: "true"
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/meilisearch:/meili_data
+    - ${DATA_ROOT:-/volume1/docker}/karakeep/karakeep-data/meilisearch:/meili_data
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=karakeep
     - com.portainer.category=scaletail

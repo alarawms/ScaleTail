@@ -4,8 +4,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-recyclarr  # Name for local container management
+    hostname: recyclarr  # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -15,7 +15,7 @@ services:
       #- TS_ACCEPT_DNS=true # Uncomment when using MagicDNS
     - TS_AUTH_ONCE=true
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/recyclarr/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -25,15 +25,12 @@ services:
     restart: always
 
   # ${SERVICE}
-    env_file:
-    - ../../.env.shared
-    - .env
   application:
-    image: ${IMAGE_URL} # Image to be used
+    image: ghcr.io/recyclarr/recyclarr # Image to be used
     network_mode: service:tailscale # Sidecar configuration to route ${SERVICE} through Tailscale
-    container_name: app-${SERVICE} # Name for local container management
+    container_name: app-recyclarr  # Name for local container management
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/recyclarr/recyclarr-data/config:/config
     environment:
     - TZ=${TZ:-UTC}
     - RECYCLARR_CREATE_CONFIG=true
@@ -49,5 +46,5 @@ services:
     #   start_period: 30s # Time to wait before starting health checks
     # restart: unless-stopped
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=recyclarr
     - com.portainer.category=scaletail

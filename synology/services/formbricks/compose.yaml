@@ -13,8 +13,8 @@ services:
   # Tailscale Sidecar Configuration
   tailscale:
     image: tailscale/tailscale:latest # Image to be used
-    container_name: tailscale-${SERVICE} # Name for local container management
-    hostname: ${SERVICE} # Name used within your Tailscale environment
+    container_name: tailscale-formbricks # Name for local container management
+    hostname: formbricks # Name used within your Tailscale environment
     environment:
     - TS_AUTHKEY=${TS_AUTHKEY}
     - TS_STATE_DIR=/var/lib/tailscale
@@ -28,8 +28,8 @@ services:
     - source: ts-serve
       target: /config/serve.json
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/config:/config # Config folder used to store Tailscale files - you may need to change the path
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/config:/config # Config folder used to store Tailscale files - you may need to change the path
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/ts/state:/var/lib/tailscale # Tailscale requirement - you may need to change the path
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:41234/healthz"] # Check Tailscale has a Tailnet IP and is operational
       interval: 1m # How often to perform the check
@@ -38,34 +38,31 @@ services:
       start_period: 10s # Time to wait before starting health checks
     restart: always
 
-    env_file:
-    - ../../.env.shared
-    - .env
   postgres:
     restart: always
     image: pgvector/pgvector:pg17
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/postgres:/var/lib/postgresql/data
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/formbricks-data/postgres:/var/lib/postgresql/data
     environment:
     - POSTGRES_PASSWORD=postgres
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=formbricks
     - com.portainer.category=scaletail
   redis:
     restart: always
     image: valkey/valkey@sha256:12ba4f45a7c3e1d0f076acd616cb230834e75a77e8516dde382720af32832d6d
     command: valkey-server --appendonly yes
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/redis:/data
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/formbricks-data/redis:/data
 
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=formbricks
     - com.portainer.category=scaletail
   formbricks:
-    image: ${IMAGE_URL}
+    image: ghcr.io/formbricks/formbricks:latest
     network_mode: service:tailscale
-    container_name: app-${SERVICE}
+    container_name: app-formbricks
     environment:
       ######################################################## REQUIRED ########################################################
 
@@ -267,8 +264,8 @@ services:
       PGID: "${PGID:-100}"
       TZ: ${TZ:-UTC}
     volumes:
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/app/config:/config
-    - ${DATA_ROOT:-/volume1/docker}/${SERVICE}/${SERVICE}-data/saml-connection:/home/nextjs/apps/web/saml-connection
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/formbricks-data/app/config:/config
+    - ${DATA_ROOT:-/volume1/docker}/formbricks/formbricks-data/saml-connection:/home/nextjs/apps/web/saml-connection
     depends_on:
       tailscale:
         condition: service_healthy
@@ -278,5 +275,5 @@ services:
         condition: service_started
     restart: always
     labels:
-    - com.portainer.stack=${SERVICE}
+    - com.portainer.stack=formbricks
     - com.portainer.category=scaletail
